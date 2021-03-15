@@ -10,8 +10,10 @@ public class Quick {
     data[index] = data[start];
     data[start] = pivot;
     int i = start;
-    int j = end + 1;
+    int j = end;
+    System.out.println(" ======  i = " + i + " j = " + j);
     while (i < j) {
+      System.out.println("i = " + i + " j = " + j);
       for (i++; data[i] < pivot; i++);
       for (j--; data[j] > pivot; j--);
       if (i < j) {
@@ -24,24 +26,28 @@ public class Quick {
     return j;
   }
   public static int quickselect(int[] data, int k){
+    System.out.println("===================================");
     int partition = partition(data, 0, data.length-1);
     System.out.println("quickselect: " + partition + " " + k + " data.length: " + data.length );
+    System.out.println("partition: " + partition + " k: " + k);
     if (partition == k) {
       return data[partition];
     }
-    else if (partition < k) {
+    else if (partition > k) {
       return quickselect(Arrays.copyOfRange(data,0,partition), k);
     }
     else  {
       return quickselect(Arrays.copyOfRange(data,partition,data.length-1), k);
     }
-    
+
   }
-  /*
+
   public static void quicksort(int[] data){
-            int partition = partition(data, 0, data.length);
-            quicksort(data[0], partition);
-            quicksort(data[partition], data.length);
+            if (data.length > 1) {
+            int partition = partition(data, 0, data.length-1);
+            quicksort(Arrays.copyOfRange(data,0, partition));
+            quicksort(Arrays.copyOfRange(data,partition,data.length-1));
           }
-  */
-}
+        }
+
+}  // end of whole class

@@ -8,7 +8,13 @@ public class Driver {
 
 
     Quick quick = new Quick();
-    int x = quick.quickselect(data, 2);
-    System.out.println(x);
+    //int x = quick.quickselect(data, 5);
+    //System.out.println(x);
+
+    quick.quicksort(data);
+
+    for (int i = 0; i < data.length; i++) {
+      System.out.print(data[i] + ", ");
+    }
   }
 }
