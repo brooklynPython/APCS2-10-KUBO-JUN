@@ -6,5 +6,9 @@ public class Driver {
     Preliminary pre = new Preliminary();
     System.out.println(pre.partition(data, start, end));
 
+
+    Quick quick = new Quick();
+    int x = quick.quickselect(data, 2);
+    System.out.println(x);
   }
 }
