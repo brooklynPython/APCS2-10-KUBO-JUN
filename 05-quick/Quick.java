@@ -2,6 +2,7 @@ import java.util.*;
 public class Quick {
   public static int partition (int [] data, int start, int end){
     Random rand = new Random();
+    System.out.println("end and start is: " + end + " " + start);
     int index = rand.nextInt(end-start) + start;
     int pivot = data[index];
     System.out.println("index is: " + index);
@@ -22,18 +23,19 @@ public class Quick {
 
     return j;
   }
-  public static int quickselect(int [] data, int k){
-    int partition = partition(data, 0, data.length);
+  public static int quickselect(int[] data, int k){
+    int partition = partition(data, 0, data.length-1);
+    System.out.println("quickselect: " + partition + " " + k + " data.length: " + data.length );
     if (partition == k) {
       return data[partition];
     }
     else if (partition < k) {
-      return partition(data, 0, partition);
+      return quickselect(Arrays.copyOfRange(data,0,partition), k);
     }
-    else if (partition > k) {
-      return partition(data, partition, data.length);
+    else  {
+      return quickselect(Arrays.copyOfRange(data,partition,data.length-1), k);
     }
-    return -1;
+    
   }
   /*
   public static void quicksort(int[] data){
