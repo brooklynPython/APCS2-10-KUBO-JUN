@@ -11,7 +11,7 @@ public class Quick {
     data[start] = pivot;
     int i = start;
     int j = end;
-    System.out.println(" ======  i = " + i + " j = " + j);
+    System.out.println(" ======  i = " + i + " j = " + j + " data length = " + data.length);
     while (i < j) {
       System.out.println("i = " + i + " j = " + j);
       for (i++; data[i] < pivot; i++);
@@ -43,7 +43,7 @@ public class Quick {
   }
 
   public static void quicksort(int[] data){
-            if (data.length > 1) {
+            if (data.length > 2) {
             int partition = partition(data, 0, data.length-1);
             quicksort(Arrays.copyOfRange(data,0, partition));
             quicksort(Arrays.copyOfRange(data,partition,data.length-1));
