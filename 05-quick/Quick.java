@@ -42,12 +42,16 @@ public class Quick {
     return data[low];
   }
 
+  public static void quicksort(int[] data, int start, int end) {
+    if (start < end) {
+        int partition = partition(data, start, end);
+        quicksort(data, start, partition-1);
+        quicksort(data, partition+1, end);
+    }
+    return;
+  }
   public static void quicksort(int[] data){
-            if (data.length > 2) {
-            int partition = partition(data, 0, data.length-1);
-            quicksort(Arrays.copyOfRange(data,0, partition));
-            quicksort(Arrays.copyOfRange(data,partition,data.length-1));
-          }
-        }
+    quicksort(data, 0, data.length-1);
+  }
 
 }  // end of whole class
