@@ -1,8 +1,6 @@
 import java.util.*;
 public class Quick {
   public static int partition (int [] data, int start, int end){
-    if (start == end) return start;
-    if (data.length == 1) return start;
     Random rand = new Random();
     System.out.println("end and start is: " + end + " " + start);
     int index = rand.nextInt(end-start) + start;
@@ -50,6 +48,7 @@ public class Quick {
     }
     return;
   }
+
   public static void quicksort(int[] data){
     quicksort(data, 0, data.length-1);
   }
